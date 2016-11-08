@@ -24,14 +24,21 @@ public class UploadController {
 	}
 	
 	@PostMapping("/uploadimage")
-	public String uploadImage(@RequestParam String name, @RequestPart MultipartFile image, Model model) {
+	public String uploadImage(@RequestParam String name, @RequestPart MultipartFile image, @RequestPart MultipartFile image2, Model model) {
 		System.out.println("Received name: " + name);
 		try {
 			if (image.isEmpty()) {
-				System.out.println("No file uploaded");
+				System.out.println("No image uploaded");
 				model.addAttribute("upload", "NOK");
 			} else {
-				image.transferTo(new File("D:\\!Temp\\Test\\" + image.getOriginalFilename()));
+				image.transferTo(new File("D:\\!Temp\\Test\\1" + image.getOriginalFilename()));
+				model.addAttribute("upload", "OK");
+			}
+			if (image2.isEmpty()) {
+				System.out.println("No image2 uploaded");
+				model.addAttribute("upload", "NOK");
+			} else {
+				image2.transferTo(new File("D:\\!Temp\\Test\\2" + image2.getOriginalFilename()));
 				model.addAttribute("upload", "OK");
 			}
 		} catch (Exception e) {

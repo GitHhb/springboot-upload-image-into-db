@@ -12,10 +12,12 @@
     	<fieldset>
 		    Location name:<br/>
 <!-- 		    <input type="text" th:field="*{name}" /> -->
-		    <input type="text" field="name" />
+		    <input type="text" name="name" />
 		    <p/>Select a file to upload
 		    <br/>
 		    <input type="file" name="image" accept=".png,.jpg,.gif,.bmp"/>
+		    <br/>
+		    <input type="file" name="image2" accept=".png,.jpg,.gif,.bmp"/>
 <!-- 		    <div th:if="${upload} == null" th:text="'Upload not succeeded'"></div> -->
 		    <p/>
 		    <input type="submit" value="Submit" />
